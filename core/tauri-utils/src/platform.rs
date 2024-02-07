@@ -239,8 +239,10 @@ pub fn resource_dir(package_info: &PackageInfo, env: &Env) -> crate::Result<Path
   let exe_dir = exe.parent().expect("failed to get exe directory");
   let curr_dir = exe_dir.display().to_string();
 
-  if curr_dir.ends_with(format!("{MAIN_SEPARATOR}target{MAIN_SEPARATOR}debug").as_str())
-    || curr_dir.ends_with(format!("{MAIN_SEPARATOR}target{MAIN_SEPARATOR}release").as_str())
+  // if curr_dir.ends_with(format!("{MAIN_SEPARATOR}target{MAIN_SEPARATOR}debug").as_str())
+  //   || curr_dir.ends_with(format!("{MAIN_SEPARATOR}target{MAIN_SEPARATOR}release").as_str())
+  if curr_dir.ends_with(format!("{MAIN_SEPARATOR}debug").as_str())
+    || curr_dir.ends_with(format!("{MAIN_SEPARATOR}release").as_str())
     || cfg!(target_os = "windows")
   {
     // running from the out dir or windows
